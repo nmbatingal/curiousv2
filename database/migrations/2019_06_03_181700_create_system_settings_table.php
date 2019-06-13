@@ -15,7 +15,9 @@ class CreateSystemSettingsTable extends Migration
     {
         Schema::create('system_settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('system_name');
+            $table->string('system_acronym');
+            // $table->timestamps();
         });
     }
 

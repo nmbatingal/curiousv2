@@ -29,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -64,7 +64,7 @@ class LoginController extends Controller
             $existUser  = User::where('email', $user->email)->first();
 
             if($existUser) {
-                Auth::loginUsingId($existUser->id);
+                Auth::loginUsingId($existUser->id, true);
             }
             else {
                 $newUser                    = new User;
@@ -76,9 +76,10 @@ class LoginController extends Controller
                 $newUser->email             = $user->email;
                 $newUser->email_verified_at = now();
                 $newUser->avatar            = $user->avatar;
+                $newUser->active            = true;
                 $newUser->save();
 
-                Auth::loginUsingId($newUser->id);
+                Auth::loginUsingId($newUser->id, true);
             }
 
             return redirect($this->redirectPath());

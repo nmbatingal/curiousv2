@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
 Auth::routes();
@@ -24,3 +24,9 @@ Route::get('redirect/{driver}', 'Auth\LoginController@redirectToProvider')
 
 Route::get('{driver}/callback', 'Auth\LoginController@handleProviderCallback')
     ->name('login.callback');
+
+
+Route::group(['as' => 'admin.', 'prefix' => 'admin',  'middleware' => 'auth'], function()
+{
+    Route::get('/', function() { return "this"; })->name('index');
+});

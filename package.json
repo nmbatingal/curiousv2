@@ -20,6 +20,15 @@
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
-        "vue": "^2.5.17"
+        "vue": "^2.5.17",
+        "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome": "^1.1.8",
+        "@fortawesome/fontawesome-free-brands": "^5.0.13",
+        "@fortawesome/fontawesome-free-regular": "^5.0.13",
+        "@fortawesome/fontawesome-free-solid": "^5.0.13",
+        "font-awesome": "^4.7.0",
+        "startbootstrap-modern-business": "^4.2.0"
     }
 }

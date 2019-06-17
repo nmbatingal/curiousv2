@@ -53,9 +53,9 @@
                         </div>
 
                         <div class="form-group mb-0">
-                                <button type="submit" class="btn btn-primary btn-block">
-                                    {{ __('Login') }} <i class="fas fa-chevron-right ml-2"></i>
-                                </button>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                {{ __('Login') }} <i class="fas fa-chevron-right ml-2"></i>
+                            </button>
                         </div>
                     </form>
                 </div>

@@ -28,5 +28,7 @@ Route::get('{driver}/callback', 'Auth\LoginController@handleProviderCallback')
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin',  'middleware' => 'auth'], function()
 {
-    Route::get('/', function() { return "this"; })->name('index');
+    Route::get('/', 'Admin\AdminController@index')->name('index');
+    Route::get('/fields', 'Admin\AdminController@fields')->name('fields');
+    Route::post('/fields/category/upload', 'Admin\CategoryController@fileUpload')->name('category.upload');
 });

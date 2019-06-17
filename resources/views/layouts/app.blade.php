@@ -31,12 +31,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item pt-1">
+                        <li class="nav-item mr-5 pt-1">
                             <a class="nav-link" href="#">Articles & Researches</a>
                         </li>
                         @guest
                             @if (!Route::is('login') && !Route::is('register'))
-                                <li class="nav-item ml-5 pt-1">
+                                <li class="nav-item pt-1">
                                     <a class="btn btn-outline-light" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                                 <li class="nav-item ml-2 pt-1">
@@ -44,7 +44,7 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item ml-5 dropdown">
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     @if(auth()->user()->provider_name)
                                         <img src="{{ auth()->user()->avatar }}" alt="avatar" width="32" height="32" style="margin-right: 8px;">

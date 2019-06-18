@@ -10,7 +10,11 @@
     <title>{{ config('app.name', 'Laravel') }} Admin</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/manifest.js') }}"></script>
+    <script src="{{ asset('js/vendor.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- <script src="{{ asset('js/datatable.js') }}"></script> -->
+    <!-- <script type="text/javascript" src="{{ asset('DataTables/datatables.min.js') }}"></script> -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,6 +23,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/simple-sidebar.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/datatable.css') }}" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/datatables.min.css') }}"/> -->
 </head>
 <body>
     <div id="app">
@@ -81,6 +87,7 @@
     </div>
 
     <!-- Menu Toggle Script -->
+    @stack('scripts')
     <script>
         $("#menu-toggle").click(function(e) {
             e.preventDefault();

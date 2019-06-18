@@ -16,7 +16,35 @@ use App\Imports\CategoryImports;
 
 class CategoryController extends Controller
 {
-    public function fileUpload(Request $request){
+    public function addFieldCategory(Request $request) 
+    {
+        $catField = CategoryField::create(['category_field' => $request->inputField]);
+
+        return redirect()->route('admin.fields');
+    }
+
+    public function addDomainCategory(Request $request) 
+    {
+        $catDomain = CategoryDomain::create([
+                        'category_domain' => $request->inputDomain, 
+                        'category_field_id' => $request->inputField,
+                    ]);
+
+        return redirect()->route('admin.fields');
+    }
+
+    public function addSubdomainCategory(Request $request) 
+    {
+        $catSubdomain = CategorySubdomain::create([
+                        'category_subdomain' => $request->inputSubdomain, 
+                        'category_domain_id' => $request->inputDomain,
+                    ]);
+
+        return redirect()->route('admin.fields');
+    }
+
+    public function fileUpload(Request $request)
+    {
         //validate the xls file
         $this->validate($request, [
             'inputFile'	=> 'required'

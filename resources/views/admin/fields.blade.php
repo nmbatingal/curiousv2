@@ -21,7 +21,8 @@
             <div class="card h-100">
                 <h5 class="card-header">Add Field Category</h5>
                 <div class="card-body">
-                    <form>
+                    <form action="{{ route('admin.store.field_category') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <input id="inputField" type="text" class="form-control" name="inputField" placeholder="Enter category field here" required>
                         </div>
@@ -49,13 +50,14 @@
             <div class="card h-100">
                 <h5 class="card-header">Add Domain Category</h5>
                 <div class="card-body">
-                    <form>
+                    <form action="{{ route('admin.store.domain_category') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <select id="inputField" class="form-control" name="inputField" required>
                                 <option value="">Select category field</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                                @foreach ( $catField as $field )
+                                    <option value="{{ $field->id }}">{{ $field->category_field }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
@@ -74,21 +76,18 @@
             <div class="card h-100">
                 <h5 class="card-header">Add Subdomain Category</h5>
                 <div class="card-body">
-                    <form>
-                        <div class="form-group">
-                            <select id="inputField" class="form-control" name="inputField" required>
-                                <option value="">Select category field</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                        </div>
+                    <form action="{{ route('admin.store.subdomain_category') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <select id="inputDomain" class="form-control" name="inputDomain" required>
                                 <option value="">Select category domain</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                                @foreach ( $catField as $field )
+                                    <optgroup label="{{ $field->category_field }}">
+                                        @foreach( $field->catDomains as $domain)
+                                            <option value="{{ $domain->id }}">{{ $domain->category_domain }}</option>
+                                        @endforeach
+                                    </optgroup>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
@@ -105,13 +104,13 @@
     <!-- /row -->
 
     <!-- Table Content -->
-    <div class="row">
+    <div class="row mb-3">
         <div class="col-md-12">
             <div class="card">
                 <h5 class="card-header">Research List of Categories</h5>
-                <div class="card-body p-0">
+                <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-hover mb-0">
+                        <table id="tableCategory" class="table table-hover mb-0">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -121,6 +120,15 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @forelse ( $categories as $category )
+                                    <tr>
+                                        <td></td>
+                                        <td>{{ $category->catDomain->catField->category_field }}</td>
+                                        <td>{{ $category->catDomain->category_domain }}</td>
+                                        <td>{{ $category->category_subdomain }}</td>
+                                    </tr>
+                                @empty
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -131,3 +139,11 @@
     <!-- /.row -->
 </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#tableCategory').DataTable();
+        } );
+    </script>
+@endpush

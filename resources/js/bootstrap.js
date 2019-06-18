@@ -11,6 +11,14 @@ try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
 
+    require('datatables.net').default;
+    require('datatables.net-bs4').default;
+    // require( 'datatables.net-bs4' )(window, $);
+
+    // var $       = require( 'jquery' );
+	// var dt      = require( 'datatables.net-bs4' )( window, $ );
+	// var buttons = require( 'datatables.net-bs4' )( window, $ );
+
     require('bootstrap');
     require('@fortawesome/fontawesome');
 	require('@fortawesome/fontawesome-free-solid');

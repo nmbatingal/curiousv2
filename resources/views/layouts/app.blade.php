@@ -10,6 +10,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/manifest.js') }}"></script>
+    <script src="{{ asset('js/vendor.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -19,6 +21,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/modern-business.css') }}" rel="stylesheet">
+
+    @yield('styles')
+
 </head>
 <body>
     <div id="app">
@@ -31,8 +36,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mr-5 pt-1">
+                        <li class="nav-item mr-1 pt-1">
                             <a class="nav-link" href="#">Articles & Researches</a>
+                        </li>
+                        <li class="nav-item mr-5 pt-1">
+                            <a class="nav-link" href="#">My Research</a>
                         </li>
                         @guest
                             @if (!Route::is('login') && !Route::is('register'))

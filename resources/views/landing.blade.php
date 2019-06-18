@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('styles')
+@endsection
+
 @section('content')
 <!-- Search form container -->
 <div class="container">
@@ -7,15 +10,18 @@
         <div class="col-12 pt-4 pb-3">
             <h5 class="pb-2">Search for reasearch articles and open access content by typing keywords in the search box.</h5>
 
-            <form class="form-inline">
-                <input type="text" class="form-control mb-2 mr-sm-auto" id="" placeholder="Keywords">
-                <input type="text" class="form-control mb-2 mr-sm-auto" id="" placeholder="Author name">
-                <input type="text" class="form-control col-md-4 mb-2 mr-sm-auto" id="" placeholder="Research title">
-                <select class="custom-select col-md-3 mb-2 mr-sm-auto" id="inlineFormCustomSelectPref">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+            <form action="{{ route('search') }}" class="form-inline" method="GET">
+                <input type="text" class="form-control mb-2 mr-sm-auto" name="keyword" placeholder="Keywords">
+                <input type="text" class="form-control mb-2 mr-sm-auto" name="author" placeholder="Author name">
+                <input type="text" class="form-control col-md-4 mb-2 mr-sm-auto" name="title" placeholder="Research title">
+                <select class="custom-select col-md-3 mb-2 mr-sm-auto" name="category">
+                    <option value="">Choose category...</option>
+                    @foreach ( $catField as $field )
+                        <option class="font-weight-bold">{{ $field->category_field }}</option>
+                        @foreach( $field->catDomains as $domain)
+                            <option class="ti">{{ $domain->category_domain }}</option>
+                        @endforeach
+                    @endforeach
                 </select>
                 <button type="submit" class="btn btn-primary mb-2"><i class="fas fa-search"></i></button>
                 <a class="btn btn-link mb-2" href="#"><i class="fas fa-cog"></i></a>

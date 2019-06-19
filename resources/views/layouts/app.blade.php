@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title') {{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/manifest.js') }}"></script>
@@ -37,10 +37,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mr-1 pt-1">
-                            <a class="nav-link" href="#">Articles & Researches</a>
-                        </li>
-                        <li class="nav-item pt-1">
-                            <a class="nav-link" href="#">My Research</a>
+                            <a class="nav-link" href="#">Articles & Research</a>
                         </li>
                         @guest
                             @if (!Route::is('login') && !Route::is('register'))
@@ -52,10 +49,17 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item pt-1">
+                                @if( auth()->user()->username )
+                                    <a class="nav-link" href="{{ route('researcher.index', auth()->user()->username ) }}">My Research</a>
+                                @else
+                                    <a class="nav-link" href="{{ route('researcher.index', auth()->user()->id) }}">My Research</a>
+                                @endif
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     @if(auth()->user()->provider_name)
-                                        <img src="{{ auth()->user()->avatar }}" alt="avatar" width="32" height="32" style="margin-right: 8px;">
+                                        <img src="{{ auth()->user()->avatar }}" class="rounded-circle" alt="avatar" width="32" height="32" style="margin-right: 8px;">
                                     @else
                                         <img src="{{ asset(auth()->user()->avatar) }}" alt="avatar" width="32" height="32" style="margin-right: 8px;">
                                     @endif

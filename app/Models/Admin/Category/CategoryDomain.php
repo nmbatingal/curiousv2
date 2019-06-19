@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Model\Admin\Category;
+namespace App\Models\Admin\Category;
 
-use App\Model\Admin\Category\CategoryField;
-use App\Model\Admin\Category\CategorySubdomain;
+use App\Models\Admin\Category\CategoryField;
+use App\Models\Admin\Category\CategorySubdomain;
 
 use Illuminate\Database\Eloquent\Model;
 

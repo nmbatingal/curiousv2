@@ -38,3 +38,14 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin',  'middleware' => 'auth'], f
     Route::post('/fields/category/domain/store', 'Admin\CategoryController@addDomainCategory')->name('store.domain_category');
     Route::post('/fields/category/subdomain/store', 'Admin\CategoryController@addSubdomainCategory')->name('store.subdomain_category');
 });
+
+// Route::resource('/my-research', 'Research\ResearchController');
+Route::group(['as' => 'researcher.',
+			  'middleware' => [
+			  	// 'auth',
+			  	// 'account'
+			  ]
+			], function() {
+	Route::get('/{account}', 'Research\ResearchController@index')->name('index');
+	Route::get('research/create', 'Research\ResearchController@create')->name('create');
+});

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid">
-<!-- Page Heading/Breadcrumbs -->
+    <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">Research Category
       <!-- <small>Subheading</small> -->
     </h1>

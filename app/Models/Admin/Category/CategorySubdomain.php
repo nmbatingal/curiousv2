@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model\Admin\Category;
+namespace App\Models\Admin\Category;
 
-use App\Model\Admin\Category\CategoryDomain;
+use App\Models\Admin\Category\CategoryDomain;
 
 use Illuminate\Database\Eloquent\Model;
 

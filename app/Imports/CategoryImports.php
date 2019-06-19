@@ -2,9 +2,9 @@
 
 namespace App\Imports;
 
-use App\Model\Admin\Category\CategoryField;
-use App\Model\Admin\Category\CategoryDomain;
-use App\Model\Admin\Category\CategorySubdomain;
+use App\Models\Admin\Category\CategoryField;
+use App\Models\Admin\Category\CategoryDomain;
+use App\Models\Admin\Category\CategorySubdomain;
 
 
 use Maatwebsite\Excel\Concerns\ToModel;

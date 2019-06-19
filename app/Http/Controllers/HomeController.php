@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Model\Admin\Category\CategoryField;
+use App\Models\Admin\Category\CategoryField;
 
 class HomeController extends Controller
 {

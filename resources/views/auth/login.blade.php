@@ -4,10 +4,12 @@
 <div class="container mt-5 mb-5">
 
     <div class="row justify-content-center">
-        <div class="col-md-4 pr-1 mb-4">
+        <div class="col-md-4 pr-1 mb-3">
             <div class="card">
                 <div class="card-body">
-                    <h4>{{ __('Login') }} <small class="float-right"><a href="{{ route('register') }}" class="btn btn-link">Create an account</a></small></h4>
+                    <h4>{{ __('Login') }}</h4>
+                    <small><a href="">Login as researcher</a></small>
+                    <small class="float-right"><a href="{{ route('register') }}">Create an account</a></small>
                     <hr>
 
                     <form method="POST" action="{{ route('login') }}">
@@ -56,20 +58,10 @@
                             <button type="submit" class="btn btn-primary btn-block">
                                 {{ __('Login') }} <i class="fas fa-chevron-right ml-2"></i>
                             </button>
+                            <a  href="{{ route('login.provider', 'google') }}" 
+                            class="btn btn-danger btn-block"><i class="fab fa-google mr-3"></i>{{ __('Google') }} Login</a>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex col-md-4 pl-1 mb-4">
-            <div class="card flex-fill">
-                <div class="card-body">
-                    <h4>Sign in via</h4>
-
-                    <div class="mt-5">
-                        <a  href="{{ route('login.provider', 'google') }}" 
-                            class="btn btn-danger btn-block"><i class="fab fa-google mr-3"></i>{{ __('Google') }}</a>
-                    </div>
                 </div>
             </div>
         </div>

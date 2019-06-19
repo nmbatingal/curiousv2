@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Model\Admin\Category\CategoryField;
-use App\Model\Admin\Category\CategoryDomain;
-use App\Model\Admin\Category\CategorySubdomain;
+use App\Models\Admin\Category\CategoryField;
+use App\Models\Admin\Category\CategoryDomain;
+use App\Models\Admin\Category\CategorySubdomain;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;

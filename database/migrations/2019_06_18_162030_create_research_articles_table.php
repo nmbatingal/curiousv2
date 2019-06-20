@@ -34,6 +34,7 @@ class CreateResearchArticlesTable extends Migration
             $table->boolean('access_type')->default(0);
             $table->boolean('status')->default(0);
             // $table->uuid('log_id')->index()->nullable();
+            $table->timestamps();
 
             $table->foreign('category_field_id')->references('id')->on('category_fields')->onDelete('set null')->onUpdate('cascade');
             $table->foreign('category_domain_id')->references('id')->on('category_domains')->onDelete('set null')->onUpdate('cascade');

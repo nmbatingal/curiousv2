@@ -1,4 +1,4 @@
-@extends('layouts.researcher')
+@extends('layouts.app')
 
 @section('title')
 My Research -
@@ -27,7 +27,7 @@ My Research -
 
                                 @if ( auth()->user()->isFollowing( $account->id ) )
                                     <!-- Unfollow Button -->
-                                    <div class="col">
+                                    <div class="col-md-12 text-center pb-3">
                                         <form id="unfollow-form" action="{{ route('researcher.unfollow', $account->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
@@ -101,10 +101,10 @@ My Research -
             </div>
             <!-- End Nav Bars -->
 
-            <h3 class="mb-5">Articles & Research</h3>
+            <h3 class="mb-5">Articles & Research <span class="badge badge-primary">{{ $researchUploads->total() }}</span></h3>
 
             <div class="d-flex my-3 justify-content-between">
-                <a href="{{ route('researcher.create') }}" class="btn btn-success">Upload new research</a>
+                <a href="{{ route('researcher.create', $account->id) }}" class="btn btn-success">Upload new research</a>
                 <form class="form-inline">
                     <input class="form-control mx-sm-2" type="" name="" placeholder="type here">
                     <button type="submit" class="btn btn-outline-secondary">Search</button>
@@ -113,48 +113,50 @@ My Research -
 
             <div class="card">
                 <ul class="list-group list-group-flush">
-                    <!-- List Item 1 -->
-                    <li class="list-group-item">
-                        <div class="row">
-                          <div class="col">
-                            <h3>Project One</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-                            <a class="btn btn-primary" href="#">View Project
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                            <a class="btn btn-link " href="#">View Project
-                            </a>
-                          </div>
-                        </div>
-                    </li>
-                    <!-- End List Item -->
+
+                    @forelse ( $researchUploads as $research )
+                        <!-- List Item 1 -->
+                        <li class="list-group-item">
+                            <div class="row">
+                              <div class="col">
+                                <h4 class="mb-0">
+                                    <a href="{{ $research->id }}" class="">{{ $research->publication_title }}</a>
+                                </h4>
+                                <a href="" class="">{{ $research->catSubdomain->category_subdomain }}</a>,&nbsp;
+                                <i>{!! $research->status ? 'Completed' : 'Ongoing' !!}</i>,&nbsp;{{ $research->project_duration }}
+                                <br>
+                                Author
+                                <p></p>
+
+                                <a class="btn btn-primary " href="{{ $research->id }}">Open Research
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+                                <small class="p-2 text-mute"><i class="fas fa-eye"></i> 0 views</small>
+                                <small class="p-2 text-mute"><i>posted on {{ $research->updated_at }}</i></small>
+                              </div>
+                            </div>
+                        </li>
+                        <!-- End List Item -->
+                    @empty
+                        <li class="list-group-item text-center">
+                            <span>No research conducted yet</span>
+                        </li>
+                    @endforelse
 
                 </ul>
             </div>
 
+            @if ( $researchUploads->total() > 0 )
+                <div class="row mt-3">
+                    <div class="col text-center">
+                        Showing {{ $researchUploads->firstItem() }} to {{ $researchUploads->perPage() }} of {{ $researchUploads->total() }} entries
+                    </div>
+                </div>
+            @endif
+
             <!-- Pagination -->
-            <ul class="pagination justify-content-center mt-4">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">1</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">2</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">3</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </li>
+            <ul class="pagination justify-content-center mt-1">
+                  {{ $researchUploads }}
             </ul>
 
         <!-- End Page Content -->

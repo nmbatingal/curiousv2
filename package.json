@@ -33,6 +33,7 @@
         "datatables.net-responsive": "^2.2.3",
         "datatables.net-responsive-bs4": "^2.2.3",
         "font-awesome": "^4.7.0",
-        "startbootstrap-modern-business": "^4.2.0"
+        "startbootstrap-modern-business": "^4.2.0",
+        "summernote": "^0.8.12"
     }
 }

@@ -86,8 +86,8 @@
         <!-- /#wrapper -->
     </div>
 
-    <!-- Menu Toggle Script -->
     @stack('scripts')
+    <!-- Menu Toggle Script -->
     <script>
         $("#menu-toggle").click(function(e) {
             e.preventDefault();

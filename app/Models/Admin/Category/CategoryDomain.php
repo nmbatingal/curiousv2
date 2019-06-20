@@ -23,6 +23,6 @@ class CategoryDomain extends Model
 
     public function catSubdomains()
     {
-        return $this->hasMany(CategorySubdomain::class, 'category_subdomain_id');
+        return $this->hasMany(CategorySubdomain::class, 'category_domain_id');
     }
 }

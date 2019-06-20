@@ -45,10 +45,13 @@ Route::group(['as' => 'researcher.'], function() {
 	Route::get('/{id}', 'Research\ResearchController@index')->name('index');
     Route::get('/{id}/followers', 'Research\ResearchController@followers')->name('followers');
     Route::get('/{id}/following', 'Research\ResearchController@following')->name('following');
-
-	Route::get('research/create', 'Research\ResearchController@create')->name('create');
+    
 
     Route::group([ 'middleware'=>'auth' ], function() {
+
+        Route::get('/{user}/research/create', 'Research\ResearchController@create')->name('create');
+        Route::post('/{user}/research/store', 'Research\ResearchController@store')->name('store');
+
         Route::post('/{user}/follow', 'User\FollowController@follow')->name('follow');
         Route::delete('/{user}/unfollow/', 'User\FollowController@unfollow')->name('unfollow');
     });

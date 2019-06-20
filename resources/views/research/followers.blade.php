@@ -1,4 +1,4 @@
-@extends('layouts.researcher')
+@extends('layouts.app')
 
 @section('title')
 Followers -
@@ -27,7 +27,7 @@ Followers -
 
                                 @if ( auth()->user()->isFollowing( $account->id ) )
                                     <!-- Unfollow Button -->
-                                    <div class="col">
+                                    <div class="col-md-12 text-center pb-3">
                                         <form id="unfollow-form" action="{{ route('researcher.unfollow', $account->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
@@ -179,7 +179,7 @@ Followers -
             </div>
 
             <!-- Pagination -->
-            <ul class="pagination justify-content-center mt-4">
+            <!-- <ul class="pagination justify-content-center mt-4">
                   <li class="page-item">
                     <a class="page-link" href="#" aria-label="Previous">
                       <span aria-hidden="true">&laquo;</span>
@@ -201,7 +201,7 @@ Followers -
                       <span class="sr-only">Next</span>
                     </a>
                   </li>
-            </ul>
+            </ul> -->
             <!-- End Page Content  -->
 
         </div>

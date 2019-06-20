@@ -12,7 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/manifest.js') }}"></script>
     <script src="{{ asset('js/vendor.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -37,7 +37,10 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mr-1 pt-1">
-                            <a class="nav-link" href="#">Articles & Research</a>
+                            <a class="nav-link" href="http://127.0.0.1:8001/browse">Articles & Research</a>
+                        </li>
+                        <li class="nav-item mr-1 pt-1">
+                            <a class="nav-link" href="http://127.0.0.1:8001/investments">R&D Investments</a>
                         </li>
                         <li class="nav-item mr-1 pt-1">
                             <a class="nav-link" href="https://oneexpert.gov.ph/" target="_blank">One Expert</a>
@@ -107,5 +110,8 @@
             <!-- /.container -->
         </footer>
     </div>
+
+    @stack('scripts')
+
 </body>
 </html>

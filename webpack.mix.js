@@ -20,4 +20,5 @@ mix.js('resources/js/app.js', 'public/js')
    .extract([
          'vue'
      ])
-   .sass('resources/sass/app.scss', 'public/css');
+   .sass('resources/sass/app.scss', 'public/css')
+   .copyDirectory('node_modules/summernote/dist', 'public/assets/summernote');

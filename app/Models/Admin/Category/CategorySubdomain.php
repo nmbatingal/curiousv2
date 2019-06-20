@@ -3,6 +3,7 @@
 namespace App\Models\Admin\Category;
 
 use App\Models\Admin\Category\CategoryDomain;
+use App\Models\Admin\Category\CategorySubdomain;
 
 use Illuminate\Database\Eloquent\Model;
 

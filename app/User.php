@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use App\Models\Research\FollowResearcher;
+use App\Models\Research\ResearchArticle;
 
 class User extends Authenticatable
 {
@@ -65,5 +66,10 @@ class User extends Authenticatable
     public function isFollowing($researcher_id)
     {
         return (bool) $this->follows()->where('researcher_id', $researcher_id)->first(['id']);
+    }
+
+    public function researchUploads()
+    {
+        return $this->hasMany(ResearchArticle::class, 'uploader_id', 'id');
     }
 }

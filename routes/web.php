@@ -41,6 +41,20 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin',  'middleware' => 'auth'], f
 
 // Route::resource('/my-research', 'Research\ResearchController');
 Route::group(['as' => 'researcher.'], function() {
-	Route::get('/{account}', 'Research\ResearchController@index')->name('index');
+
+	Route::get('/{id}', 'Research\ResearchController@index')->name('index');
+
+    Route::get('/{id}/followers', 'Research\ResearchController@index')->name('followers');
+
 	Route::get('research/create', 'Research\ResearchController@create')->name('create');
+
+    Route::group([ 'middleware'=>'auth' ], function() {
+        Route::post('/{user}/follow', 'User\FollowController@follow')->name('follow');
+        Route::delete('/{user}/unfollow/', 'User\FollowController@unfollow')->name('unfollow');
+    });
 });
+
+// Route::group([ 'middleware'=>'auth' ], function() {
+//     Route::post('{user}/follow', 'User\FollowController@follow')->name('follow.researcher');
+//     Route::delete('{user}/unfollow/', 'User\FollowController@unfollow')->name('unfollow.researcher');
+// });

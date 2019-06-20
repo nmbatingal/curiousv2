@@ -39,6 +39,22 @@
                         <li class="nav-item mr-1 pt-1">
                             <a class="nav-link" href="#">Articles & Research</a>
                         </li>
+                        <li class="nav-item mr-1 pt-1">
+                            <a class="nav-link" href="https://oneexpert.gov.ph/" target="_blank">One Expert</a>
+                        </li>
+                        <li class="nav-item mr-3 pt-1">
+                            <a class="nav-link" href="http://apps.pcieerd.dost.gov.ph/osist/" target="_blank">OSIST</a>
+                        </li>
+                        <!-- <li class="nav-item dropdown mr-1 pt-1">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Explore <span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#" target="_blank">CSU Research</a>
+                                <a class="dropdown-item" href="https://oneexpert.gov.ph/" target="_blank" title="S&T Experts for you">DOST One Expert</a>
+                                <a class="dropdown-item" href="http://apps.pcieerd.dost.gov.ph/osist/" target="_blank" title="DOST One-Stop Information Shop of Technologies in the Philippines">DOST OSIST</a>
+                            </div>
+                        </li> -->
                         @guest
                             @if (!Route::is('login') && !Route::is('register'))
                                 <li class="nav-item pt-1">
@@ -49,13 +65,6 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item pt-1">
-                                @if( auth()->user()->username )
-                                    <a class="nav-link" href="{{ route('researcher.index', auth()->user()->username ) }}">My Research</a>
-                                @else
-                                    <a class="nav-link" href="{{ route('researcher.index', auth()->user()->id) }}">My Research</a>
-                                @endif
-                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     @if(auth()->user()->provider_name)
@@ -68,6 +77,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('admin.index') }}">Admin settings</a>
+                                    <a class="dropdown-item" href="{{ route('researcher.index', auth()->user()->id) }}">My Research</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -23,11 +23,35 @@ My Research -
                         <img src="{{ $account->avatar }}" class="card-img rounded-circle" alt="..." style="width: 70%">
                         <h4 class="card-title mt-2">{{ $account->name }}</h4>
                         <div class="row text-center justify-content-md-center">
-                            <!-- <div class="col">
-                                 <button class="btn btn-sm btn-primary">Follow</button>
-                            </div> -->
+                            @if ( $account->id != auth()->user()->id )
+
+                                @if ( auth()->user()->isFollowing( $account->id ) )
+                                    <!-- Unfollow Button -->
+                                    <div class="col">
+                                        <form id="unfollow-form" action="{{ route('researcher.unfollow', $account->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-outline-primary">Unfollow</button>
+                                        </form>
+                                    </div>
+                                @else
+                                    <!-- Follow Button -->
+                                    <div class="col">
+                                        <a class="btn btn-sm btn-primary" href="{{ route('researcher.follow', $account->id) }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('follow-form').submit();">
+                                            <i class="fas fa-heart"></i> Follow
+                                        </a>
+                                        <form id="follow-form" action="{{ route('researcher.follow', $account->id) }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                @endif
+                            @endif
                             <div class="col">
-                                <a href="#" class="btn btn-link"><i class="fas fa-user-friends"></i> <font class="font-medium">254 Followers</font></a>
+                                <a href="{{ route('researcher.followers', $account->id) }}" class="">
+                                    <i class="fas fa-user-friends"></i> {{ $account->followers()->count() }} Followers
+                                </a>
                             </div>
                         </div>
                     </center>

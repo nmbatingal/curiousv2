@@ -14,11 +14,13 @@ class ResearchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $account)
+    public function index($id)
     {
+
+        $account = User::where('id', $id)->with('followers')->first();
         return view('research.index', compact('account'));
 
-        // return $account;
+        // return dd($account);
     }
 
     /**

@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use App\Models\Research\FollowResearcher;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -51,4 +53,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function followers() {
+        return $this->hasMany(FollowResearcher::class, 'researcher_id', 'id');
+    }
+
+    public function follows() {
+        return $this->hasMany(FollowResearcher::class, 'user_id', 'id');
+    }
+
+    public function isFollowing($researcher_id)
+    {
+        return (bool) $this->follows()->where('researcher_id', $researcher_id)->first(['id']);
+    }
 }

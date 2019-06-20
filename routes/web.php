@@ -40,12 +40,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin',  'middleware' => 'auth'], f
 });
 
 // Route::resource('/my-research', 'Research\ResearchController');
-Route::group(['as' => 'researcher.',
-			  'middleware' => [
-			  	// 'auth',
-			  	// 'account'
-			  ]
-			], function() {
+Route::group(['as' => 'researcher.'], function() {
 	Route::get('/{account}', 'Research\ResearchController@index')->name('index');
 	Route::get('research/create', 'Research\ResearchController@create')->name('create');
 });

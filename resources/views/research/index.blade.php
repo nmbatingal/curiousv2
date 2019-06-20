@@ -53,6 +53,7 @@ My Research -
             </div>
         </div>
         <div class="col-md-9">
+
             <!-- <div class="p-2 bg-white mb-3">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
@@ -60,7 +61,7 @@ My Research -
                     </li>
                 </ul>
             </div> -->
-            
+
             <h3 class="mb-5">Articles & Research</h3>
 
             <div class="d-flex my-3 justify-content-between">
@@ -116,6 +117,7 @@ My Research -
                     </a>
                   </li>
             </ul>
+
         </div>
     </div>
 </div>

@@ -27,6 +27,7 @@ class User extends Authenticatable
         'is_admin',
         'active',
         'activation_token',
+        'is_researcher',
     ];
 
     /**

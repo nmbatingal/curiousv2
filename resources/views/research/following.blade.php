@@ -1,7 +1,7 @@
 @extends('layouts.researcher')
 
 @section('title')
-My Research -
+Followers -
 @endsection
 
 @section('styles')
@@ -84,15 +84,14 @@ My Research -
         <div class="col-md-9">
 
             <!-- Page Content -->
-
             <!-- Nav Bars -->
             <div class="p-2 bg-white mb-3">
                 <ul class="nav nav-pills">
                     <li class="nav-item mr-sm-2">
-                        <a class="nav-link active" href="{{ route('researcher.index', $account->id) }}">Articles & Research</a>
+                        <a class="nav-link" href="{{ route('researcher.index', $account->id) }}">Articles & Research</a>
                     </li>
                     <li class="nav-item mr-sm-2">
-                        <a class="nav-link" href="{{ route('researcher.following', $account->id) }}">Following <span class="badge badge-primary">{{ $account->follows()->count() }}</span></a>
+                        <a class="nav-link active" href="{{ route('researcher.following', $account->id) }}">Following <span class="badge badge-primary">{{ $account->follows()->count() }}</span></a>
                     </li>
                     <li class="nav-item mr-sm-2">
                         <a class="nav-link" href="{{ route('researcher.followers', $account->id) }}">Followers <span class="badge badge-primary">{{ $account->followers()->count() }}</span></a>
@@ -101,35 +100,82 @@ My Research -
             </div>
             <!-- End Nav Bars -->
 
-            <h3 class="mb-5">Articles & Research</h3>
+            <h3 class="mb-5">Following <span class="badge badge-primary">{{ $account->follows()->count() }}</span></h3>
 
-            <div class="d-flex my-3 justify-content-between">
-                <a href="{{ route('researcher.create') }}" class="btn btn-success">Upload new research</a>
+            <div class="d-flex my-3 justify-content-end">
                 <form class="form-inline">
                     <input class="form-control mx-sm-2" type="" name="" placeholder="type here">
                     <button type="submit" class="btn btn-outline-secondary">Search</button>
                 </form>
             </div>
 
-            <div class="card">
-                <ul class="list-group list-group-flush">
-                    <!-- List Item 1 -->
-                    <li class="list-group-item">
-                        <div class="row">
-                          <div class="col">
-                            <h3>Project One</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-                            <a class="btn btn-primary" href="#">View Project
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
-                            <a class="btn btn-link " href="#">View Project
-                            </a>
-                          </div>
-                        </div>
-                    </li>
-                    <!-- End List Item -->
+            <div class="container">
+                <div class="row">
+                    @forelse ( $account->follows as $following)
+                        <div class="col-md-6 mb-3">
+                            <div class="card mr-3 h-100">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4 text-center">
+                                            <a href="{{ route( 'researcher.index', $following->researcher->id ) }}">
+                                                <img src="{{ asset($following->researcher->avatar) }}" alt="user" class="card-img rounded-circle" style="width: 100%">
+                                            </a>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h5 class="card-title mb-0">
+                                                <a href="{{ route( 'researcher.index', $following->researcher->id ) }}">
+                                                    {{ $following->researcher->name }}
+                                                </a>&nbsp;
+                                                {!! $following->researcher->isFollowing( auth()->user()->id ) ? '<small class="badge badge-secondary">Follows you</small>' : '' !!}
+                                            </h5> 
+                                            
+                                            <small>{{ $following->researcher->is_researcher ? 'Researcher' : '' }}&nbsp;</small>
+                                            @if ( $following->researcher->id != auth()->user()->id )
+                                                @if ( auth()->user()->isFollowing( $following->researcher->id ) )
+                                                    <!-- Unfollow Button -->
+                                                    <form action="{{ route('researcher.unfollow', $following->researcher->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-sm btn-outline-primary">Unfollow</button>
+                                                        <a href="#" class="btn btn-outline-secondary btn-sm"><i class="fas fa-envelope"></i> Message</a>
+                                                    </form>
+                                                @else
+                                                    <!-- Follow Button -->
+                                                    <form action="{{ route('researcher.follow', $following->researcher->id ) }}" method="POST">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-sm btn-outline-primary"><i class="fas fa-heart"></i> Follow</button>
+                                                        <a href="#" class="btn btn-outline-secondary btn-sm"><i class="fas fa-envelope"></i> Message</a>
+                                                    </form>
+                                                @endif
+                                            @else
+                                            <p class="pb-4"></p>
+                                            @endif
 
-                </ul>
+                                            <p></p>
+                                            <address>
+                                                Address: &nbsp;
+                                                <br>
+                                                <br>
+                                                <abbr title="Email"><i class="fas fa-envelope"></i></abbr> <a href="mailto:{{ $following->researcher->email }}" target="_top">{{ $following->researcher->email }}</a>
+                                                <br>
+                                                <abbr title="Phone"><i class="fas fa-phone"></i></abbr> &nbsp;
+                                            </address>
+                                            <p></p>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="col bg-white p-3 text-center">
+                            No followers yet
+                        </div>
+                    @endforelse
+                </div>
             </div>
 
             <!-- Pagination -->
@@ -156,11 +202,11 @@ My Research -
                     </a>
                   </li>
             </ul>
-
-        <!-- End Page Content -->
+            <!-- End Page Content  -->
 
         </div>
     </div>
 
 </div>
+    
 @endsection

@@ -49,8 +49,8 @@ Followers -
                                 @endif
                             @endif
                             <div class="col">
-                                <a href="{{ route('researcher.followers', $account->id) }}" class="">
-                                    <i class="fas fa-heart"></i> {{ $account->followers()->count() }} Following
+                                <a href="{{ route('researcher.following', $account->id) }}" class="">
+                                    <i class="fas fa-heart"></i> {{ $account->follows()->count() }} Following
                                 </a>
                             </div>
                             <div class="col">

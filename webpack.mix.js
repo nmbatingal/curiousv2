@@ -17,8 +17,5 @@ mix.js('resources/js/app.js', 'public/js')
             'node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js'
         ], 'public/js/datatable.js')
    .styles(['node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css'], 'public/css/datatable.css')
-   .extract([
-         'vue'
-     ])
    .sass('resources/sass/app.scss', 'public/css')
    .copyDirectory('node_modules/summernote/dist', 'public/assets/summernote');

@@ -23,7 +23,7 @@ class ResearchController extends Controller
     public function index($id)
     {
         $account = User::where('id', $id)->with('followers')->first();
-        $researchUploads = ResearchArticle::where('uploader_id', $account->id)->paginate(5);
+        $researchUploads = ResearchArticle::where('uploader_id', $account->id)->orderBy('created_at', 'DESC')->paginate(5);
         return view('research.index', compact('account', 'researchUploads'));
     }
 

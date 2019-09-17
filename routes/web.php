@@ -17,6 +17,8 @@ Auth::routes();
 // Route::get('/', function () { return view('landing'); });
 // Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/browse/articles-and-research', 'HomeController@browse')->name('browse.articles-and-research');
+Route::get('/browse/articles-and-research/{research}', 'HomeController@show')->name('browse.articles.show');
 Route::get('/search', 'HomeController@search')->name('search');
 
 Route::get('redirect/{driver}', 'Auth\LoginController@redirectToProvider')
@@ -55,6 +57,13 @@ Route::group(['as' => 'researcher.'], function() {
         Route::post('/{user}/follow', 'User\FollowController@follow')->name('follow');
         Route::delete('/{user}/unfollow/', 'User\FollowController@unfollow')->name('unfollow');
     });
+});
+
+Route::group(['as' => 'rdic.'], function() {
+    
+    Route::get('/rdic/plans', function() {
+        return view('plans');
+    })->name('plans');
 });
 
 // Route::group([ 'middleware'=>'auth' ], function() {

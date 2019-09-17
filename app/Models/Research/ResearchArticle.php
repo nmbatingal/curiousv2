@@ -78,7 +78,12 @@ class ResearchArticle extends Model
     // Get research posted on
     public function getUpdatedAtAttribute()
     {
-        return $this->attributes['updated_at'];
+        return Carbon::parse($this->attributes['updated_at'])->diffForHumans();
+    }
+
+    public function getYearStartAttribute()
+    {
+        return Carbon::parse($this->attributes['created_at'])->format('Y');
     }
 
     public function getProjectDurationAttribute()

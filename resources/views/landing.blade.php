@@ -39,24 +39,24 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <!-- Slide One - Set the background image for this slide in the line below -->
-        <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item active" style="background-image: url('{{ asset('images/banners/1.jpg') }}')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>First Slide</h3>
-            <p>This is a description for the first slide.</p>
+            <!-- <h3>First Slide</h3>
+            <p>This is a description for the first slide.</p> -->
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item" style="background-image: url('{{ asset('images/banners/2.jpg') }}')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Second Slide</h3>
-            <p>This is a description for the second slide.</p>
+            <!-- <h3>Second Slide</h3>
+            <p>This is a description for the second slide.</p> -->
           </div>
         </div>
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+        <div class="carousel-item" style="background-image: url('{{ asset('images/banners/3.jpg') }}')">
           <div class="carousel-caption d-none d-md-block">
-            <h3>Third Slide</h3>
-            <p>This is a description for the third slide.</p>
+            <!-- <h3>Third Slide</h3>
+            <p>This is a description for the third slide.</p> -->
           </div>
         </div>
       </div>
@@ -75,122 +75,6 @@
 <div class="container">
 
     <h1 class="my-4">Explore articles and research on Curious</h1>
-
-    <!-- Science Article Content -->
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Science Article Title</h2>
-        </div>
-        <div class="col-md-4 mr-sm-auto">
-            <ul class="list-unstyled mb-0">
-              <li><a href="#">Bullet 1</a></li>
-              <li><a href="#">Bullet 2</a></li>
-              <li><a href="#">Bullet 3</a></li>
-              <li><a href="#">Bullet 4</a></li>
-              <li><a href="#">Bullet 5</a></li>
-            </ul>
-        </div>
-        <div class="col-md ml-sm-auto">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
-        </div>
-    </div>
-    <hr>
-    <!-- /.row -->
-
-    <!-- Science Article Content -->
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Science Article Title</h2>
-        </div>
-        <div class="col-md-4 mr-sm-auto">
-            <ul class="list-unstyled mb-0">
-              <li><a href="#">Bullet 1</a></li>
-              <li><a href="#">Bullet 2</a></li>
-              <li><a href="#">Bullet 3</a></li>
-              <li><a href="#">Bullet 4</a></li>
-              <li><a href="#">Bullet 5</a></li>
-            </ul>
-        </div>
-        <div class="col-md ml-sm-auto">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
-        </div>
-    </div>
-    <hr>
-    <!-- /.row -->
-
-    <!-- Science Article Content -->
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Science Article Title</h2>
-        </div>
-        <div class="col-md-4 mr-sm-auto">
-            <ul class="list-unstyled mb-0">
-              <li><a href="#">Bullet 1</a></li>
-              <li><a href="#">Bullet 2</a></li>
-              <li><a href="#">Bullet 3</a></li>
-              <li><a href="#">Bullet 4</a></li>
-              <li><a href="#">Bullet 5</a></li>
-            </ul>
-        </div>
-        <div class="col-md ml-sm-auto">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
-        </div>
-    </div>
-    <hr>
-    <!-- /.row -->
-
-    <!-- Features Section -->
-    <div class="row">
-        <div class="col-lg-3">
-            <h2>Modern Business Features</h2>
-            <p>The Modern Business template by Start Bootstrap includes:</p>
-            <ul>
-              <li>
-                <strong>Bootstrap v4</strong>
-              </li>
-              <li>jQuery</li>
-              <li>Font Awesome</li>
-              <li>Working contact form with validation</li>
-              <li>Unstyled page elements for easy customization</li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-        </div>
-        <div class="col-lg-3 ml-auto">
-            <h2>Modern Business Features</h2>
-            <p>The Modern Business template by Start Bootstrap includes:</p>
-            <ul>
-              <li>
-                <strong>Bootstrap v4</strong>
-              </li>
-              <li>jQuery</li>
-              <li>Font Awesome</li>
-              <li>Working contact form with validation</li>
-              <li>Unstyled page elements for easy customization</li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-        </div>
-        <div class="col-lg-3 ml-auto">
-            <h2>Modern Business Features</h2>
-            <p>The Modern Business template by Start Bootstrap includes:</p>
-            <ul>
-              <li>
-                <strong>Bootstrap v4</strong>
-              </li>
-              <li>jQuery</li>
-              <li>Font Awesome</li>
-              <li>Working contact form with validation</li>
-              <li>Unstyled page elements for easy customization</li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-        </div>
-    </div>
-    <!-- /.row -->
 
     <hr>
 

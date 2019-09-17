@@ -119,10 +119,10 @@ My Research -
                         <li class="list-group-item">
                             <div class="row">
                               <div class="col">
-                                <h4 class="mb-0">
+                                <h5 class="mb-0">
                                     <a href="{{ $research->id }}" class="">{{ $research->publication_title }}</a>
-                                </h4>
-                                <a href="" class="">{{ $research->catSubdomain->category_subdomain }}</a>,&nbsp;
+                                </h5>
+                                <a href="" class="text-muted">{{ $research->catSubdomain->category_subdomain }}</a>,&nbsp;
                                 <i>{!! $research->status ? 'Completed' : 'Ongoing' !!}</i>,&nbsp;{{ $research->project_duration }}
                                 <br>
                                 Author
@@ -132,7 +132,7 @@ My Research -
                                     <span class="glyphicon glyphicon-chevron-right"></span>
                                 </a>
                                 <small class="p-2 text-mute"><i class="fas fa-eye"></i> 0 views</small>
-                                <small class="p-2 text-mute"><i>posted on {{ $research->updated_at }}</i></small>
+                                <small class="p-2 text-mute"><i class="far fa-calendar"></i> posted {{ $research->updated_at }}</small>
                               </div>
                             </div>
                         </li>
@@ -149,7 +149,7 @@ My Research -
             @if ( $researchUploads->total() > 0 )
                 <div class="row mt-3">
                     <div class="col text-center">
-                        Showing {{ $researchUploads->firstItem() }} to {{ $researchUploads->perPage() }} of {{ $researchUploads->total() }} entries
+                        Showing {{ $researchUploads->firstItem() }} to {{ $researchUploads->lastItem() }} of {{ $researchUploads->total() }} entries
                     </div>
                 </div>
             @endif

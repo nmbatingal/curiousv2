@@ -10,9 +10,7 @@
     <title>@yield('title') {{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/manifest.js') }}"></script>
-    <script src="{{ asset('js/vendor.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -37,16 +35,24 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mr-1 pt-1">
-                            <a class="nav-link" href="http://127.0.0.1:8001/browse">Articles & Research</a>
-                        </li>
-                        <li class="nav-item mr-1 pt-1">
-                            <a class="nav-link" href="http://127.0.0.1:8001/investments">R&D Investments</a>
+                            <a class="nav-link" href="{{ route('browse.articles-and-research') }}">Articles & Research</a>
+                            <!-- <a class="nav-link" href="http://127.0.0.1:8001/browse">Articles & Research</a> -->
                         </li>
                         <li class="nav-item mr-1 pt-1">
                             <a class="nav-link" href="https://oneexpert.gov.ph/" target="_blank">One Expert</a>
                         </li>
                         <li class="nav-item mr-3 pt-1">
                             <a class="nav-link" href="http://apps.pcieerd.dost.gov.ph/osist/" target="_blank">OSIST</a>
+                        </li>
+                        <li class="nav-item dropdown mr-1 pt-1">
+                            <a id="rdicDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                R&D Investments <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="rdicDropdown">
+                                <a class="dropdown-item" href="http://127.0.0.1:8001/investments">Dashboard</a>
+                                <a class="dropdown-item" href="{{ route('rdic.plans') }}">R&D Plans</a>
+                            </div>
                         </li>
                         <!-- <li class="nav-item dropdown mr-1 pt-1">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

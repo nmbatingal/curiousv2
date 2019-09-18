@@ -1,5 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
+    "/resources/sass/custom.css": "/resources/sass/custom.css",
+    "/resources/sass/template.css": "/resources/sass/template.css",
     "/css/app.css": "/css/app.css",
     "/js/datatable.js": "/js/datatable.js",
     "/css/datatable.css": "/css/datatable.css"

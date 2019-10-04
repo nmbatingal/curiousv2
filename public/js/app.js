@@ -49231,7 +49231,9 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
  */
 
 try {
-  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
+  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"]; // import Popper from 'popper.js/dist/umd/popper.js';
+  // window.Popper = Popper;
+
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // require('datatables.net').default;
   // require('datatables.net-bs4').default;
   // require( 'datatables.net-bs4' )(window, $);

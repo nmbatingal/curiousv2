@@ -30,7 +30,8 @@ mix.js('resources/js/app.js', 'public/js')
     'resources/sass/styles/responsive.css',
   ], 'public/css/template.css')
   .scripts([
-    'resources/js/custom.js'
+    'resources/js/unicat/custom.js',
+    'resources/js/plugins/scrollmagic/ScrollMagic.min.js'
   ], 'public/js/custom.js' );
   // .scripts([
   //           'node_modules/datatables.net/js/jquery.dataTables.min.js',
